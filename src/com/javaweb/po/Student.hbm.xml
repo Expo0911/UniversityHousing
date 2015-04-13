@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.Student" table="student">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+  <!-- 定义其他属性 -->
+  <property name="password"></property>
+  <property generated="never" lazy="false" name="fname"/>
+  <property generated="never" lazy="false" name="lname"/>
+  <property generated="never" lazy="false" name="type"/>
+  <property generated="never" lazy="false" name="gender"/>
+  <property generated="never" lazy="false" name="tel"/>
+  <property generated="never" lazy="false" name="alterTel" column="alter_tel"/>
+  <property generated="never" lazy="false" name="addr"/>
+  <property generated="never" lazy="false" name="city"/>
+  <property generated="never" lazy="false" name="postCode" column="post_code"/>
+  <property column="birth_date" generated="never" lazy="false"
+   name="birthDate" type="date"/>
+  <property generated="never" lazy="false" name="category"/>
+  <property generated="never" lazy="false" name="nation"/>
+  <property generated="never" lazy="false" name="smoker"/>
+  <property generated="never" lazy="false" name="need"/>
+  <property generated="never" lazy="false" name="comment"/>
+  <property name="status"></property>
+  <property generated="never" lazy="false" name="courses"/>
+  <property generated="never" lazy="false" name="kinId" type="int" column="kin_id"/>
+  
+ </class>
+</hibernate-mapping>

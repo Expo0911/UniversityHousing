@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.Lease" table="lease">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+  <property column="student_id" name="studentId" type="int"/>
+  <property column="house_id" name="houseId" type="int"/>
+  <property column="room_id" name="roomId" type="int"/>
+  <property column="room_num" name="roomNum"/>
+  <property name="duration"/>
+  <property column="enter_date" name="enterDate" type="date"/>
+  <property column="leave_date" name="leaveDate" type="date"/>
+  <property name="deposit" type="double"/>
+  <property name="payment"/>
+  <property name="penalty" type="double"/>
+  <property name="status"/>
+ </class>
+</hibernate-mapping>

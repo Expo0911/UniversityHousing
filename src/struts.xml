@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<!-- struts为配置文件根元素 -->
+<struts>
+
+	<constant name="struts.i18n.encoding" value="gb2312"></constant>
+	<!-- Action必须放在指定的包名空间中 -->
+	<package name="struts2" extends="struts-default">
+		<action name="login" class="loginAction">
+			<result name="admin">/admin.jsp</result>
+			<result name="student">/student.jsp</result>
+			<result name="error">/login.jsp</result>
+			<result name="input">/login.jsp</result>
+
+		</action>
+		<action name="guestLogin" class="guestLoginAction">
+			<result name="guest">/student.jsp</result>
+			<result name="error">/loginGuest.jsp</result>
+			<result name="input">/loginGuest.jsp</result>
+		</action>
+		<action name="showAll" class="showAllAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAll.jsp</result>
+		</action>
+
+		<action name="delete" class="deleteAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/showAll.action</result>
+		</action>
+		<action name="add" class="addAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/showAll.action</result>
+			<result name="input">/add.jsp</result>
+			<result name="error">/add.jsp</result>
+		</action>
+		<action name="update" class="updateAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/showAll.action</result>
+			<result name="input">/update.jsp</result>
+			<result name="error">/update.jsp</result>
+		</action>
+		<action name="updateStudent" class="updateStudentAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/profileOptions.jsp</result>
+			<result name="input">/updateStudent.jsp</result>
+			<result name="error">/updateStudent.jsp</result>
+		</action>
+		<action name="updateStaff" class="updateStaffAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/profileOptionsStaff.jsp</result>
+			<result name="input">/updateStaff.jsp</result>
+			<result name="error">/updateStaff.jsp</result>
+		</action>
+		<action name="updateGuest" class="updateGuestAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/profileOptionsGuest.jsp</result>
+			<result name="input">/updateGuest.jsp</result>
+			<result name="error">/updateGuest.jsp</result>
+		</action>
+		
+		<action name="showUser" class="showUserAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showUser.jsp</result>
+		</action>
+		<action name="showStudent" class="showStudentAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showStudent.jsp</result>
+		</action>
+		<action name="showStaff" class="showStaffAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showStaff.jsp</result>
+		</action>
+		<action name="showGuest" class="showGuestAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showGuest.jsp</result>
+		</action>
+		
+		<action name="showTicket" class="showTicketAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showTicket.jsp</result>
+		</action>
+		<action name="showTicketStatus" class="showTicketStatusAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showTicketStatus.jsp</result>
+		</action>
+		
+		<action name="showAllParkingRequest" class="showAllParkingRequestAction">
+			<result name="success">/showAllParkingRequest.jsp</result>
+		</action>
+		
+		<action name="addTicket" class="addTicketAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success" type="redirect">/showTicketStatus.action</result>
+			<result name="input">/addTicket.jsp</result>
+			<result name="error">/addTicket.jsp</result>
+		</action>
+
+		<action name="showAllStaff" class="showStaffAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllStaff.jsp</result>
+		</action>
+		<action name="showStaff" class="showStaffAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showStaff.jsp</result>
+		</action>
+		<action name="showInvoice" class="showInvoiceAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showInvoice.jsp</result>
+		</action>
+		<action name="showAllInvoice" class="showAllInvoiceAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllInvoice.jsp</result>
+		</action>
+		<action name="showFormerInvoice" class="showFormerInvoiceAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showFormerInvoice.jsp</result>
+		</action>
+		
+		<action name="showLease" class="showLeaseAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showLease.jsp</result>
+		</action>
+		<action name="showAllLease" class="showAllLeaseAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllLease.jsp</result>
+		</action>
+		<action name="showFormerLease" class="showFormerLeaseAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showFormerLease.jsp</result>
+		</action>
+		
+		<action name="showAllHouse" class="showHouseAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllHouse.jsp</result>
+		</action>
+
+		<action name="addTerminReq" class="addTerminReqAction">
+			<result name="success" type="redirect">/showAllRequest.action</result>
+			<result name="input">/addTerminReq.jsp</result>
+			<result name="error">/addTerminReq.jsp</result>
+		</action>
+
+		<action name="showLeaseStatus" class="showLeaseStatusAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showLeaseStatus.jsp</result>
+		</action>
+
+		<action name="addRequest" class="addRequestAction">
+			<result name="input">/addNewRequest.jsp</result>
+			<result name="success">/requestOptions.jsp</result>
+		</action>
+
+		<action name="cancelRequest" class="cancelRequestAction">
+			<result name="success">/cancelRequest.jsp</result>
+		</action>
+		
+		<action name="cancelTerminRequest " class="cancelTerminRequestAction">
+			<result name="success">/cancelRequest.jsp</result>
+		</action>
+
+		<action name="showAllRequest" class="showAllRequestAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllReq.jsp</result>
+		</action>
+		
+		<action name="showAllTickets" class="showAllTicketsAction">
+			<!-- 定义处理结果与视图资源之间的关系 -->
+			<result name="success">/showAllTickets.jsp</result>
+		</action>
+		
+		<action name="addParkingRequest" class="addParkingRequestAction">
+			<result name="success" type="redirect">/parkingOptions.jsp</result>
+			<result name="input">/addParkingRequest.jsp</result>
+			<result name="error">/addParkingRequest.jsp</result>
+		</action>
+		
+		<action name="showCParkingSpot" class="showCParkingSpotAction">
+			<result name="success">/showCParkingSpot.jsp</result>
+		</action>
+		<action name="approveTerminReq" class="approveTerminAction">
+			<result name="success">/approveTerminReq.jsp</result>
+		</action>
+		<action name="updateTerminReq" class="updateTerminAction">
+			<result name="success" type="redirect">/approveTerminReq.action</result>
+			<result name="input">/updateReq.jsp</result>
+			<result name="error">/updateReq.jsp</result>
+		</action>
+		<action name="approveLeaseReq" class="approveLeaseReqAction">
+			<result name="success">/approveLeaseReq.jsp</result>
+		</action>
+		<action name="formLease" class="formLeaseAction">
+			<result name="success">/approvedLease.jsp</result>
+			<result name="error">/approveLeaseReq.jsp</result>
+		</action>
+		<action name="formTicket" class="formTicketAction">
+			<result name="success">/showAllTickets.jsp</result>
+		</action>
+		<action name="assignSpot" class="assignSpotAction">
+			<result name="success">/admin.jsp</result>
+			<result name="error">/admin.jsp</result>
+		</action>
+		
+		<action name="showLot" class="showLotAction" >
+			<result name="success">/showCurrentLot.jsp</result>
+			<result name="error">/showCurrentLot.jsp</result>
+		</action>
+		
+		<action name="showParkingRequest" class="showParkingReqAction">
+			<result name="success">/showParkingReqStatus.jsp</result>
+			<result name="error">/showParkingReqStatus.jsp</result>
+		</action>
+		<action name="returnSpot" class="returnParkingSpotAction">
+			<result name="success">/parkingOptions.jsp</result>
+			<result name="error">/parkingOptions.jsp</result>
+		</action>
+		<action name="renewSpot" class="renewParkingSpotAction">
+			<result name="success">/parkingOptions.jsp</result>
+			<result name="error">/parkingOptions.jsp</result>
+		</action>
+		<action name="cancelTerminRequest" class="cancelTerminRequestAction">
+			<result name="success">/cancelRequest.jsp</result>
+		</action>
+	</package>
+</struts>
+

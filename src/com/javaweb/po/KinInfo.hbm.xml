@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.KinInfo" table="kin_info">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+  <!-- 定义其他属性 -->
+  <property column="student_id" generated="never" lazy="false"
+   name="studentId" type="int"/>
+  <property generated="never" lazy="false" name="name"/>
+  <property generated="never" lazy="false" name="relationship"/>
+  <property generated="never" lazy="false" name="addr" type="text"/>
+  <property generated="never" lazy="false" name="city"/>
+  <property column="post_code" generated="never" lazy="false" name="postCode"/>
+  <property generated="never" lazy="false" name="tel"/>
+ </class>
+</hibernate-mapping>

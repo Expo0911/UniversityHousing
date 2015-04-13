@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 每个class对应一个持久化对象 -->
+	<class name="com.javaweb.po.Ticket" table="ticket">
+		<!-- id元素用来定义主键标识,并指定主键自动递增 -->
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<!-- 定义其他属性 -->
+		<property name="type"></property>
+		<property name="location" column="issue"></property>
+		<property name="studentId" column="student_id" type="int"></property>
+		<property name="date" type="date"></property>
+		<property name="status" column="status"></property>
+		<property name="description" column="comment"></property>
+	</class>
+</hibernate-mapping>

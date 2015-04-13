@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.Staff" table="staff">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+
+  <!-- 定义其他属性 -->
+
+  <property name="password"></property>
+  <property name="fname"></property>
+  <property name="lname"></property>
+  <property name="addr"></property>
+  <property name="city"></property>
+  <property name="postCode" column="post_code" ></property>
+  <property name="gender"></property>
+  <property name="birthDate" type="date" column="birth_date"></property>
+  <property name="position"></property>
+  <property name="workAt" column="work_at"></property>
+ </class>
+</hibernate-mapping>

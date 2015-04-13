@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.ParkingSpot" table="parking_spot">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+  <property name="lotId" column="lot_id"/>
+  <property name="classification"/>
+  <property name="fee"/>
+  <property name="availability" type="int"/>
+  <property name="startDate" type="date" column="start_date"></property>
+  <property name="endDate" type="date" column="end_date"></property>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+
+	<!-- 定义数据源Bean -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<property name="url">
+			<value>jdbc:mysql://localhost/housing</value>
+		</property>
+		<property name="username">
+			<value>root</value>
+		</property>
+		<property name="password">
+			<value>123456</value>
+		</property>
+	</bean>
+
+	<!-- 定义SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">
+					org.hibernate.dialect.MySQLDialect
+				</prop>
+				<prop key="hibernate.show_sql">true</prop>
+			</props>
+		</property>
+		<property name="mappingResources">
+			<list>
+				<value>com/javaweb/po/FamilyApartment.hbm.xml</value>
+				<value>com/javaweb/po/FamilyMember.hbm.xml</value>
+				<value>com/javaweb/po/GeneralApartment.hbm.xml</value>
+				<value>com/javaweb/po/Invoice.hbm.xml</value>
+				<value>com/javaweb/po/User.hbm.xml</value>
+				<value>com/javaweb/po/Student.hbm.xml</value>
+				<value>com/javaweb/po/Ticket.hbm.xml</value>
+				<value>com/javaweb/po/KinInfo.hbm.xml</value>
+				<value>com/javaweb/po/ResidenceHall.hbm.xml</value>
+				<value>com/javaweb/po/Nearby.hbm.xml</value>
+				<value>com/javaweb/po/Room.hbm.xml</value>
+				<value>com/javaweb/po/Staff.hbm.xml</value>
+				<value>com/javaweb/po/TerminReq.hbm.xml</value>
+				<value>com/javaweb/po/Guest.hbm.xml</value>
+				<value>com/javaweb/po/ParkingRequest.hbm.xml</value>
+				<value>com/javaweb/po/Lease.hbm.xml</value>
+				<value>com/javaweb/po/LeaseRequest.hbm.xml</value>
+				<value>com/javaweb/po/ParkingLot.hbm.xml</value>
+				<value>com/javaweb/po/ParkingSpot.hbm.xml</value>
+				<value>com/javaweb/po/ParkingSpotOccupy.hbm.xml</value>
+				<value>com/javaweb/po/ParkingSpotPrice.hbm.xml</value>
+				<value>com/javaweb/po/HousingInterest.hbm.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<!-- 定义hibernateTemplate -->
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+
+	<!-- 配置DAO组件 -->
+	<bean id="userDAO" class="com.javaweb.dao.UserDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="housingInterestDAO" class="com.javaweb.dao.HousingInterestDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate"/>
+		</property>
+	</bean>
+	<bean id="studentDAO" class="com.javaweb.dao.StudentDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="ticketDAO" class="com.javaweb.dao.TicketDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="kinInfoDAO" class="com.javaweb.dao.KinInfoDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="familyApartmentDAO" class="com.javaweb.dao.FamilyApartmentDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="residenceHallDAO" class="com.javaweb.dao.ResidenceHallDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="familyMemberDAO" class="com.javaweb.dao.FamilyMemberDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="nearbyDAO" class="com.javaweb.dao.NearbyDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="generalApartmentDAO" class="com.javaweb.dao.GeneralApartmentDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="terminReqDAO" class="com.javaweb.dao.TerminReqDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="staffDAO" class="com.javaweb.dao.StaffDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="guestDAO" class="com.javaweb.dao.GuestDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="roomDAO" class="com.javaweb.dao.RoomDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	<bean id="invoiceDAO" class="com.javaweb.dao.InvoiceDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="parkingRequestDAO" class="com.javaweb.dao.ParkingRequestDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="leaseDAO" class="com.javaweb.dao.LeaseDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="leaseRequestDAO" class="com.javaweb.dao.LeaseRequestDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="parkingLotDAO" class="com.javaweb.dao.ParkingLotDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+	<bean id="parkingSpotDAO" class="com.javaweb.dao.ParkingSpotDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="parkingSpotOccupyDAO" class="com.javaweb.dao.ParkingSpotOccupyDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+	
+	<bean id="parkingSpotPriceDAO" class="com.javaweb.dao.ParkingSpotPriceDAOImpl">
+		<property name="hibernateTemplate">
+			<ref bean="hibernateTemplate" />
+		</property>
+	</bean>
+
+
+	<!-- 配置业务逻辑组件 -->
+	<bean id="familyApartmentService" class="com.javaweb.service.FamilyApartmentServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="familyApartmentDAO" ref="familyApartmentDAO"></property>
+	</bean>
+	<bean id="familyMemberService" class="com.javaweb.service.FamilyMemberServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="familyMemberDAO" ref="familyMemberDAO"></property>
+	</bean>
+	<bean id="generalApartmentService" class="com.javaweb.service.GeneralApartmentServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="generalApartmentDAO" ref="generalApartmentDAO"></property>
+		<property name="housingInterestService" ref="housingInterestService"></property>
+		<property name="roomService" ref="roomService"></property>
+	</bean>
+	<bean id="invoiceService" class="com.javaweb.service.InvoiceServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="invoiceDAO" ref="invoiceDAO"></property>
+	</bean>
+	<bean id="userService" class="com.javaweb.service.UserServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="userDAO" ref="userDAO"></property>
+	</bean>
+	<bean id="studentService" class="com.javaweb.service.StudentServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="studentDAO" ref="studentDAO"></property>
+	</bean>
+	<bean id="ticketService" class="com.javaweb.service.TicketServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="ticketDAO" ref="ticketDAO"></property>
+	</bean>
+	<bean id="nearbyService" class="com.javaweb.service.NearbyServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="nearbyDAO" ref="nearbyDAO"></property>
+	</bean>
+	<bean id="kinInfoService" class="com.javaweb.service.KinInfoServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="kinInfoDAO" ref="kinInfoDAO"></property>
+	</bean>
+	<bean id="residenceHallService" class="com.javaweb.service.ResidenceHallServiceImpl">
+		<!-- 为业务逻辑组件注入DAO组件 -->
+		<property name="residenceHallDAO" ref="residenceHallDAO"></property>
+		<property name="roomService" ref="roomService"></property>
+		<property name="housingInterestService" ref="housingInterestService"></property>
+	</bean>
+	<bean id="roomService" class="com.javaweb.service.RoomServiceImpl">
+		<property name="roomDAO" ref="roomDAO"></property>
+	</bean>
+	<bean id="staffService" class="com.javaweb.service.StaffServiceImpl">
+		<property name="staffDAO" ref="staffDAO"></property>
+	</bean>
+	<bean id="guestService" class="com.javaweb.service.GuestServiceImpl">
+		<property name="guestDAO" ref="guestDAO"></property>
+	</bean>
+	<bean id="terminReqService" class="com.javaweb.service.TerminReqServiceImpl">
+		<property name="terminReqDAO" ref="terminReqDAO"></property>
+	</bean>
+	<bean id="parkingRequestService" class="com.javaweb.service.ParkingRequestServiceImpl">
+		<property name="parkingRequestDAO" ref="parkingRequestDAO"></property>
+	</bean>
+	<bean id="leaseService" class="com.javaweb.service.LeaseServiceImpl">
+		<property name="leaseDAO" ref="leaseDAO"></property>
+	</bean>
+	<bean id="leaseRequestService" class="com.javaweb.service.LeaseRequestServiceImpl">
+		<property name="leaseRequestDAO" ref="leaseRequestDAO"></property>
+	</bean>
+	<bean id="parkingLotService" class="com.javaweb.service.ParkingLotServiceImpl">
+		<property name="parkingLotDAO" ref="parkingLotDAO"></property>
+		<property name="nearbyDAO" ref="nearbyDAO"></property>
+	</bean>
+	<bean id="parkingSpotService" class="com.javaweb.service.ParkingSpotServiceImpl">
+		<property name="parkingSpotDAO" ref="parkingSpotDAO"></property>
+	</bean>
+	<bean id="parkingSpotOccupyService" class="com.javaweb.service.ParkingSpotOccupyServiceImpl">
+		<property name="parkingSpotOccupyDAO" ref="parkingSpotOccupyDAO"></property>
+	</bean>
+	<bean id="parkingSpotPriceService" class="com.javaweb.service.ParkingSpotPriceServiceImpl">
+		<property name="parkingSpotPriceDAO" ref="parkingSpotPriceDAO"></property>
+	</bean>
+	<bean id="housingInterestService" class="com.javaweb.service.HousingInterestServiceImpl">
+		<property name="housingInterestDAO" ref="housingInterestDAO"></property>
+	</bean>
+
+	<!-- login -->
+	<bean id="loginCheck" class="com.javaweb.util.LoginCheck"></bean>
+	<bean id="loginAction" class="com.javaweb.action.LoginAction">
+		<property name="lc" ref="loginCheck"></property>
+		<property name="studentService" ref="studentService"></property>
+		<property name="staffService" ref="staffService"></property>
+	</bean>
+	<bean id="guestLoginAction" class="com.javaweb.action.GuestLoginAction">
+		<property name="lc" ref="loginCheck"></property>
+		<property name="guestService" ref="guestService"></property>
+	</bean>
+
+	<!-- 创建ShowAllActon实例 -->
+	<bean id="showAllAction" class="com.javaweb.action.ShowAllAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	
+	<bean id="showAllTicketsAction" class="com.javaweb.action.ShowAllTicketsAction"
+		scope="prototype">
+		<property name="ticketService" ref="ticketService"></property>
+	</bean>
+	
+	<bean id="showAllParkingRequestAction" class="com.javaweb.action.ShowAllParkingRequestAction"
+		scope="prototype">
+		<property name="parkingRequestService" ref="parkingRequestService"></property>
+	</bean>
+	
+	<bean id="formTicketAction" class="com.javaweb.action.FormTicketAction"
+		scope="prototype">
+		<property name="ticketService" ref="ticketService"></property>
+	</bean>
+	
+	<!-- 创建deleteAction实例 -->
+	<bean id="deleteAction" class="com.javaweb.action.DeleteAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!-- 创建addAction实例 -->
+	<bean id="addAction" class="com.javaweb.action.AddAction" scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!-- 创建updateAction实例 -->
+	<bean id="updateAction" class="com.javaweb.action.UpdateAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+
+	<!-- 创建showUserAction实例 -->
+	<bean id="showUserAction" class="com.javaweb.action.ShowUserAction"
+		scope="prototype">
+		<property name="userService" ref="userService"></property>
+	</bean>
+	<!-- 创建showStudentAction实例 -->
+	<bean id="showStudentAction" class="com.javaweb.action.ShowStudentAction"
+		scope="prototype">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+	<bean id="showStaffAction" class="com.javaweb.action.ShowStaffAction"
+		scope="prototype">
+		<property name="staffService" ref="staffService"></property>
+	</bean>
+	<bean id="showGuestAction" class="com.javaweb.action.ShowGuestAction"
+		scope="prototype">
+		<property name="guestService" ref="guestService"></property>
+	</bean>
+	
+	<bean id="showTicketAction" class="com.javaweb.action.ShowTicketAction"
+		scope="prototype">
+		<property name="ticketService" ref="ticketService"></property>
+	</bean>
+
+	<bean id="addTicketAction" class="com.javaweb.action.AddTicketAction"
+		scope="prototype">
+		<property name="ticketService" ref="ticketService"></property>
+	</bean>
+
+	<bean id="showTicketStatusAction" class="com.javaweb.action.ShowTicketStatusAction"
+		scope="prototype">
+		<property name="ticketService" ref="ticketService"></property>
+	</bean>
+
+
+	
+	<bean id="showInvoiceAction" class="com.javaweb.action.ShowInvoiceAction"
+		scope="prototype">
+		<property name="invoiceService" ref="invoiceService"></property>
+	</bean>
+	<bean id="showAllInvoiceAction" class="com.javaweb.action.ShowAllInvoiceAction"
+		scope="prototype">
+		<property name="invoiceService" ref="invoiceService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+	<bean id="showFormerInvoiceAction" class="com.javaweb.action.ShowFormerInvoiceAction"
+		scope="prototype">
+		<property name="invoiceService" ref="invoiceService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+	<bean id="showLeaseAction" class="com.javaweb.action.ShowLeaseAction"
+		scope="prototype">
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+	<bean id="showFormerLeaseAction" class="com.javaweb.action.ShowFormerLeaseAction"
+		scope="prototype">
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+	<bean id="showAllLeaseAction" class="com.javaweb.action.ShowAllLeaseAction"
+		scope="prototype">
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+
+	<bean id="showHouseAction" class="com.javaweb.action.ShowHouseAction">
+		<property name="familyApartmentService" ref="familyApartmentService"></property>
+		<property name="generalApartmentService" ref="generalApartmentService"></property>
+		<property name="residenceHallService" ref="residenceHallService"></property>
+	</bean>
+
+	<bean id="addTerminReqAction" class="com.javaweb.action.AddTerminReqAction"
+		scope="prototype">
+		<property name="terminReqService" ref="terminReqService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+
+	<bean id="showLeaseStatusAction" class="com.javaweb.action.ShowLeaseStatusAction"
+		scope="prototype">
+		<property name="leaseService" ref="leaseService"></property>
+	</bean>
+
+	<bean id="updateStudentAction" class="com.javaweb.action.UpdateStudentAction">
+		<property name="studentService" ref="studentService"></property>
+	</bean>
+	
+	<bean id="updateGuestAction" class="com.javaweb.action.UpdateGuestAction">
+		<property name="guestService" ref="guestService"></property>
+	</bean>
+	
+	<bean id="updateStaffAction" class="com.javaweb.action.UpdateStaffAction">
+		<property name="staffService" ref="staffService"></property>
+	</bean>
+	
+	<bean id="addRequestAction" class="com.javaweb.action.AddRequestAction">
+		<property name="leaseRequestService" ref="leaseRequestService"></property>
+	</bean>
+
+	
+	<bean id="cancelRequestAction" class="com.javaweb.action.DeleteRequestAction">
+		<property name="leaseRequestService" ref="leaseRequestService"></property>
+	</bean>
+	
+	<bean id="cancelTerminRequestAction" class="com.javaweb.action.DeleteTerminRequestAction">
+		<property name="terminReqService" ref="terminReqService"></property>
+	</bean>
+	
+	<bean id="showAllRequestAction" class="com.javaweb.action.ShowAllRequestAction">
+		<property name="leaseRequestService" ref="leaseRequestService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+		<property name="terminReqService" ref="terminReqService"></property>
+	</bean>
+	
+	<bean id="addParkingRequestAction" class="com.javaweb.action.AddParkingRequestAction">
+		<property name="parkingRequestService" ref="parkingRequestService"></property>	
+	</bean>
+	
+	<bean id="showCParkingSpotAction" class="com.javaweb.action.ShowCParkingSpotAction">
+		<property name="parkingSpotService" ref="parkingSpotService"></property>
+		<property name="parkingSpotOccupyService" ref="parkingSpotOccupyService"></property>
+	</bean>
+	<bean id="approveTerminAction" class="com.javaweb.action.ApproveTerminRequestAction">
+		<property name="terminReqService" ref="terminReqService"></property>
+	</bean>
+	
+	<bean id="updateTerminAction" class="com.javaweb.action.UpdateTerminAction">
+		<property name="terminReqService" ref="terminReqService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+		<property name="roomService" ref="roomService"></property>
+		<property name="studentService" ref="studentService"></property>
+		<property name="guestService" ref="guestService"></property>
+	</bean>
+	
+	<bean id="approveLeaseReqAction" class="com.javaweb.action.ApproveLeaseRequestAction">
+		<property name="leaseRequestService" ref="leaseRequestService"></property>
+	</bean>
+	
+	<bean id="formLeaseAction" class="com.javaweb.action.FormLeaseAction">
+		<property name="leaseRequestService" ref="leaseRequestService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+		<property name="generalApartmentService" ref="generalApartmentService"></property>
+		<property name="familyApartmentService" ref="familyApartmentService"></property>
+		<property name="residenceHallService" ref="residenceHallService"></property>
+		<property name="roomService" ref="roomService"></property>
+		<property name="studentService" ref="studentService"></property>
+		<property name="guestService" ref="guestService"></property>
+		<property name="housingInterestService" ref="housingInterestService"></property>	
+	</bean>
+	
+	<bean id="assignSpotAction" class="com.javaweb.action.AssignParkingSpotAction">
+		<property name="leaseService" ref="leaseService"></property>
+		<property name="parkingLotService" ref="parkingLotService"></property>
+		<property name="studentService" ref="studentService"></property>
+		<property name="parkingRequestService" ref="parkingRequestService"></property>
+		<property name="parkingSpotService" ref="parkingSpotService"></property>
+		<property name="parkingSpotOccupyService" ref="parkingSpotOccupyService"></property>
+		<property name="parkingSpotPriceService" ref="parkingSpotPriceService"></property>
+	</bean>
+	
+	<bean id="showLotAction" class="com.javaweb.action.ShowCurrentParkingLotAction">
+		<property name="parkingLotService" ref="parkingLotService"></property>
+		<property name="parkingSpotOccupyService" ref="parkingSpotOccupyService"></property>
+		<property name="parkingSpotService" ref="parkingSpotService"></property>
+	</bean>
+	<bean id="showParkingReqAction" class="com.javaweb.action.ShowParkingReqStatusAction">
+		<property name="parkingRequestService" ref="parkingRequestService"></property>
+	</bean>
+	<bean id="returnParkingSpotAction" class="com.javaweb.action.ReturnParkingAction">
+		<property name="parkingSpotOccupyService" ref="parkingSpotOccupyService"></property>
+		<property name="parkingSpotService" ref="parkingSpotService"></property>
+	</bean>
+	<bean id="renewParkingSpotAction" class="com.javaweb.action.RenewParkingAction">
+		<property name="parkingSpotOccupyService" ref="parkingSpotOccupyService"></property>
+		<property name="leaseService" ref="leaseService"></property>
+		<property name="parkingSpotService" ref="parkingSpotService"></property>
+	</bean>
+
+</beans>

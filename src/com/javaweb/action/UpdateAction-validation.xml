@@ -1,0 +1,58 @@
+<!-- <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE validators PUBLIC 
+  		"-//OpenSymphony Group//XWork Validator 1.0.2//EN" 
+  		"http://www.opensymphony.com/xwork/xwork-validator-1.0.2.dtd">
+<validators>
+	<validator type="requiredstring">
+		<param name="fieldName">username</param>
+		<param name="trim">true</param>
+		<message>必须输入用户名</message>
+	</validator>
+
+	<validator type="regex">
+		<param name="fieldName">username</param>
+		<param name="expression"><![CDATA[(\w{4,20})]]></param>
+		<message>用户名长度必须为4至20之间</message>
+	</validator>
+
+	<validator type="requiredstring">
+		<param name="fieldName">password</param>
+		<param name="trim">true</param>
+		<message>必须输入密码</message>
+	</validator>
+
+	<validator type="regex">
+		<param name="fieldName">password</param>
+		<param name="expression"><![CDATA[(\w{4,20})]]></param>
+		<message>密码长度必须为4至20之间</message>
+	</validator>
+
+	<validator type="int">
+		<param name="fieldName">age</param>
+		<param name="min">1</param>
+		<param name="max">120</param>
+		<message>年龄必须在${min}至${max}之间</message>
+	</validator>
+
+	<validator type="date">
+		<param name="fieldName">birth</param>
+		<param name="min">1900-01-01</param>
+		<param name="max">2010-01-01</param>
+		<message>出生日期必须在1900-01-01至2010-01-01之间</message>
+	</validator>
+
+	<validator type="email">
+		<param name="fieldName">email</param>
+		<message>请输入有效的电子邮箱地址</message>
+	</validator>
+</validators>
+
+
+
+
+
+
+
+
+
+ -->

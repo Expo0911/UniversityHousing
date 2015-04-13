@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+ <!-- 每个class对应一个持久化对象 -->
+ <class name="com.javaweb.po.Invoice" table="invoice">
+  <!-- id元素用来定义主键标识,并指定主键自动递增 -->
+  <id name="id">
+   <generator class="identity"/>
+  </id>
+  <!-- 定义其他属性 -->
+  <property generated="never" lazy="false" column="lease_id" name="leaseId" type="int"/>
+  <property generated="never" lazy="false" column="pay_date" name="payDate" type="date"/>
+  <property generated="never" lazy="false" column="due_date" name="dueDate" type="date"/>
+  <property column="pay_method" name="payMethod"/>
+  <property generated="never" lazy="false" name="status"/>
+  <property generated="never" lazy="false" name="penalty" type="double"/>
+  <property generated="never" lazy="false" column="damage_charge" name="damageCharge" type="double"/>
+  <property generated="never" lazy="false" column="late_fee" name="lateFee" type="double"/>
+  <property generated="never" lazy="false" name="total" type="double"/>
+ </class>
+</hibernate-mapping>

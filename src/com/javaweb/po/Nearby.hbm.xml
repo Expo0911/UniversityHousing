@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- 每个class对应一个持久化对象 -->
+	<class name="com.javaweb.po.Nearby" table="nearby">
+		<!-- id元素用来定义主键标识,并指定主键自动递增 -->
+		<id name="id">
+			<generator class="identity"></generator>
+		</id>
+		
+		<!-- 定义其他属性 -->
+		<property name="lotId" type="int" column="lot_id"></property>
+		<property name="houseId" type="int" column="house_id"></property>
+		
+	</class>
+</hibernate-mapping>
